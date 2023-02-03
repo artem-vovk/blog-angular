@@ -1,0 +1,42 @@
+<div *ngIf="posts.length; else loading">
+  <div class="form-control">
+    <input type="text" placeholder="Find post" [(ngModel)]="searchPost">
+  </div>
+  <table>
+    <tbody>
+      <tr>
+        <th>#</th>
+        <th>Author</th>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Action</th>
+      </tr>
+    </tbody>
+    <tbody>
+
+<!--    use custom pipe for filter posts by user query-->
+    <tr *ngFor="let post of posts | searchPostPipe:searchPost; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ post.author }}</td>
+      <td>{{ post.title }}</td>
+      <td>{{ post.date | date:'short' :'null' :'en'}}</td>
+      <td>
+        <span>
+        <button class="btn btn-link"
+        [routerLink]="['/admin', 'post', post.id, 'edit']"
+        >
+        Edit
+        </button>
+          <a (click)="removePost(post.id!)" >Delete</a>
+        </span>
+      </td>
+
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<ng-template #loading>
+  <p class="text-center">Loading...</p>
+</ng-template>

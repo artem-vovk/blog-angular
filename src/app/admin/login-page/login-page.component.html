@@ -1,0 +1,59 @@
+<form class="card" [formGroup]="formLogin" (ngSubmit)="submit()">
+  <h2>Enter to admin account</h2>
+
+<!-- put info from stream to var error and shou it -->
+  <div class="alert alert-danger" *ngIf="authService.error$ | async as error">
+    {{ error }}
+  </div>
+  <div class="alert alert-info" *ngIf="message">
+    {{ message }}
+  </div>
+
+  <div class="form-control"
+       [ngClass]="{invalid: getEmail?.touched && getEmail?.invalid}">
+    <label for="email">Email:</label>
+    <input type="email" id="email" formControlName="email">
+    <div
+      *ngIf="getEmail?.touched && getEmail?.invalid"
+      class="validation"
+    >
+      <small *ngIf="getEmail?.hasError('required')">
+        Enter email
+      </small>
+      <small *ngIf="formLogin.get('email')?.hasError('email')">
+        Write correct email
+      </small>
+    </div>
+
+  </div>
+
+  <div class="form-control"
+       [ngClass]="{invalid: getPassword?.touched && getPassword?.invalid}"
+  >
+    <label for="password">Password:</label>
+    <input type="password" id="password" formControlName="password" autocomplete="on">
+    <div
+      *ngIf="formLogin.controls['password'].touched && formLogin.controls['password'].invalid"
+      class="validation"
+    >
+      <small *ngIf="formLogin.get('password')?.hasError('required')">
+        Enter password
+      </small>
+      <!--          .hasError('minlength')-->
+      <small *ngIf="formLogin.get('password')?.errors?.['minlength']">
+        Min
+        {{this.formLogin.get('password')?.errors?.['minlength']?.['requiredLength']}}
+        symbols, but now is
+        {{this.formLogin.get('password')?.errors?.['minlength']?.['actualLength']}}
+        symbols
+
+      </small>
+    </div>
+  </div>
+
+  <button
+    [disabled]="formLogin.invalid || submitted"
+    type="submit" class="btn btn-primary">Login</button>
+
+
+</form>

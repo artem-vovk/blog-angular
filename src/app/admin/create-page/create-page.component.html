@@ -1,0 +1,55 @@
+<form [formGroup]="formCreatePost" (ngSubmit)="submit()" >
+  <h1>Create new post</h1>
+
+  <div class="form-control"
+       [ngClass]="{invalid: formCreatePost.get('title')?.touched && formCreatePost.get('title')?.invalid}"
+  >
+
+    <label for="title">Title:</label>
+    <input type="text" id="title" formControlName="title">
+    <div
+      *ngIf="formCreatePost.get('title')?.touched && formCreatePost.get('title')?.invalid"
+      class="validation"
+    >
+      <small *ngIf="formCreatePost.get('title')?.hasError('required')">
+        Write title
+      </small>
+    </div>
+  </div>
+
+
+  <div class="form-control" >
+    <label>Post text</label>
+    <quill-editor formControlName="text"></quill-editor>
+    <div
+      *ngIf="formCreatePost.get('text')?.touched && formCreatePost.get('text')?.invalid"
+      class="validation"
+    >
+      <small *ngIf="formCreatePost.get('text')?.errors?.['required']">
+        Write text
+      </small>
+    </div>
+  </div>
+
+
+  <div class="form-control">
+    <!--       [ngClass]="{invalid: formCreatePost.get('').touched && getEmail?.invalid}"-->
+
+    <label for="author">Author:</label>
+    <input type="text" id="author" formControlName="author">
+    <div
+      *ngIf="formCreatePost.get('author')?.touched && formCreatePost.get('author')?.invalid"
+      class="validation"
+    >
+      <small *ngIf="formCreatePost.get('author')?.hasError('required')">
+        Write authors name
+      </small>
+    </div>
+  </div>
+
+  <button
+    type="submit"
+    class="btn btn-block btn-dark"
+    [disabled]="formCreatePost.invalid"
+  >Create post</button>
+</form>

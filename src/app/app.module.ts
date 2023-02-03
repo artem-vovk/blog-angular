@@ -1,5 +1,10 @@
 import {NgModule, Provider, isDevMode} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import enLocale from "@angular/common/locales/en";
+import { ServiceWorkerModule } from '@angular/service-worker';
+import {registerLocaleData} from "@angular/common";
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,12 +13,7 @@ import { PostPageComponent } from './post-page/post-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { PostComponent } from './shared/components/post/post.component';
 import {SharedModule} from "./shared/shared.module";
-import {HTTP_INTERCEPTORS} from "@angular/common/http";
-import {AuthService} from "./admin/shared/services/auth.service";
 import {AuthInterceptor} from "./shared/auth.interceptor";
-import {registerLocaleData} from "@angular/common";
-import enLocale from "@angular/common/locales/en";
-import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 //localization

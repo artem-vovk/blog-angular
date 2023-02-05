@@ -10,7 +10,7 @@ In the future, if I have free time, I will develop a Backend based on Spring Boo
 
 ## Link to APP
 
-Link to app `https://blog-angular-1b6c8.web.app/`. The application will automatically reload if you change any of the source files.
+Link to app `https://blog-angular-1b6c8.web.app/`. 
 
 
 ## Autorisation

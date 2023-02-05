@@ -1,3 +1,23 @@
 a {
   margin-left: 0.5rem;
 }
+
+
+
+input {
+  max-width: 250px;
+}
+
+.form-control {
+  display: flex;
+  justify-content: end;
+}
+
+select {
+  margin-left: 15px;
+  padding-left: 50px;
+  max-width: 250px;
+  background: #e5e5e5 url(../../../assets/images/sort_FILL0_wght300_GRAD0_opsz40.png) no-repeat;
+}
+
+

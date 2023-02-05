@@ -50,7 +50,7 @@ export class EditPageComponent implements OnInit, OnDestroy{
         text: this.formEdit.value.text,
         title: this.formEdit.value.title
       }).subscribe(() => {
-        this.submitted = true
+        this.submitted = false
         this.alertService.success('Post is updated')
       })
     }

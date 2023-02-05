@@ -14,6 +14,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { PostComponent } from './shared/components/post/post.component';
 import {SharedModule} from "./shared/shared.module";
 import {AuthInterceptor} from "./shared/auth.interceptor";
+import { PipeReversArrPipe } from './pipes/pipe-revers-arr.pipe';
 
 
 //localization
@@ -32,7 +33,8 @@ const INTERCEPTOR_PROVIDER: Provider = {
     MainLayoutComponent,
     PostPageComponent,
     HomePageComponent,
-    PostComponent
+    PostComponent,
+    PipeReversArrPipe
   ],
   imports: [
     BrowserModule,

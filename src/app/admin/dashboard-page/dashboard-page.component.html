@@ -1,6 +1,13 @@
 <div *ngIf="posts.length; else loading">
   <div class="form-control">
     <input type="text" placeholder="Find post" [(ngModel)]="searchPost">
+<!--    <div>-->
+<!--      <img src="../../../assets/images/sort_FILL0_wght300_GRAD0_opsz40.png" alt="">-->
+<!--    </div>-->
+      <select (change)="reversPost($event)" >
+      <option value="right">First new</option>
+      <option value="revers">First old</option>
+    </select>
   </div>
   <table>
     <tbody>

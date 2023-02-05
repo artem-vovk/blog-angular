@@ -25,7 +25,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.postSubscribe = this.postsService.getAllPosts().subscribe(posts => {
-      this.posts = posts //put in local var data/object from server
+      this.posts = posts.reverse() //put in local var data/object from server
     })
   }
 
@@ -39,6 +39,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
 
 
   //this method works when customer clause webpage
+  // value!: string;
 
   ngOnDestroy(): void {
     if(this.postSubscribe) {
@@ -50,4 +51,8 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
   }
 
 
+  reversPost(value: Event) {
+
+    this.posts.reverse()
+  }
 }
